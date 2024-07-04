@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Spytter World
-        {% block title %}   
-        {% endblock title %}
+    <title>
+      {% block title %}   
+      {% endblock title %}
+      Spytter World
     </title>
       <!-- Favicons -->
     <link href= {% static "core/img/favicon.png" %} rel="icon">
@@ -33,17 +35,17 @@
   <header id="header" class="fixed-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Spitter</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href={% url "home" %}>Spitter</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a class="active" href={% url "home" %}>Home</a></li>
+          <li><a href={% url "about" %}>About</a></li>
+          <li><a href={% url "resume" %}>Resume</a></li>
+          <li><a href={% url "services" %}>Services</a></li>
+          <li><a href={% url "portfolio" %}>Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -59,15 +61,8 @@
     </div>
 
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Spitter</h1>
-      <h2>I'm a professional content creator from Argentina</h2>
-      <a href="about.html" class="btn-about">About Me</a>
-    </div>
-  </section><!-- End Hero -->
+  {% block content %} 
+  {% endblock content %}
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
