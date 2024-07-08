@@ -26,9 +26,11 @@ SECRET_KEY = "django-insecure-=a%4)b6(b$rvouhigrk^fu3)gk9@!z!w+^)bcm4+ipj(xtb83-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://localhost']
 
-
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_FRAME_SRC = ("'self'", "https://www.youtube.com", "https://vimeo.com")
 # Application definition
 
 INSTALLED_APPS = [
@@ -127,3 +129,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+

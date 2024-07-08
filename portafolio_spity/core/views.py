@@ -20,3 +20,6 @@ def services(request):
 
 def portfolio(request):
     return render(request,'core/portfolio.html')
+
+def portfolio_details(request):
+    return render(request,'core/portfolio-details.html')

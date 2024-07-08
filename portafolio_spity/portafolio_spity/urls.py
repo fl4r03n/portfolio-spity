@@ -26,5 +26,6 @@ urlpatterns = [
     path('resume/', core_views.resume, name='resume'),
     path('services/', core_views.services, name='services'),
     path('portfolio/', core_views.portfolio, name='portfolio'),
+    path('portfolio-details/', core_views.portfolio_details, name='portfolio-details'),
     path("admin/", admin.site.urls),
 ]

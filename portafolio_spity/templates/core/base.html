@@ -99,6 +99,16 @@
   <!-- Template Main JS File -->
   <script src= {% static "core/js/main.js" %}></script>
   
+  <script>
+    const lightbox = GLightbox({
+      selector: '.portfolio-lightbox',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true,
+      width: '90%',
+      height: '90%'
+    });
+  </script>
 
   </body>
 </html>
