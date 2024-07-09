@@ -31,6 +31,8 @@ CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://localhost']
 
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_FRAME_SRC = ("'self'", "https://www.youtube.com", "https://vimeo.com")
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Application definition
 
 INSTALLED_APPS = [
@@ -66,6 +68,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "core.views.site_configuration",
             ],
         },
     },
