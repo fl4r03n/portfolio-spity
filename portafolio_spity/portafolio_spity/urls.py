@@ -18,10 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views as core_views
+from home import views as home_views
 
 urlpatterns = [
-    path('',core_views.home, name='home'),
-    path('hone/',core_views.home, name='home'),
+    path('',home_views.home, name='home'),
+    path('hone/',home_views.home, name='home'),
     path('about-me/', core_views.about, name='about'),
     path('resume/', core_views.resume, name='resume'),
     path('services/', core_views.services, name='services'),
@@ -30,3 +31,8 @@ urlpatterns = [
     path('contact/', core_views.contact, name='contact'),
     path("admin/", admin.site.urls),
 ]
+
+from django.conf import settings
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
