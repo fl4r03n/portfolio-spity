@@ -7,9 +7,6 @@ from .models import SiteConfiguration, SocialLinks
 def contact(request):
     return render(request,'core/contact.html')
 
-def about(request):
-    return render(request,'core/about.html')
-
 def resume(request):
     return render(request,'core/resume.html')
 
