@@ -19,3 +19,25 @@ class SiteConfiguration(models.Model):
     def __str__(self):
         return self.site_name
     
+class SocialLinks(models.Model):
+    link_social = models.CharField(_("Redes"), max_length=300, default="#")
+    link_x = models.CharField(_("X"), max_length=300, default="#")
+    link_fb = models.CharField(_("Facebook"), max_length=300, default="#")
+    link_ig = models.CharField(_("Instagram"), max_length=300, default="#")
+    link_in = models.CharField(_("Linkedin"), max_length=300, default="#")
+    link_tw = models.CharField(_("Twitch"), max_length=300, default="#")
+    link_yt = models.CharField(_("YouTube"), max_length=300, default="#")
+    link_sc = models.CharField(_("SoundCloud"), max_length=300, default="#")
+    
+    
+    def save(self, *args, **kwargs):
+        if not self.pk and SocialLinks.objects.exists():
+            raise ValueError('Solo puede existir una instancia de SocialLinks')
+        return super(SocialLinks, self).save(*args, **kwargs)
+    
+    class Meta:
+        verbose_name = _("Social Links")
+        verbose_name_plural = _("Social Links")
+    
+    def __str__(self):
+        return self.link_social

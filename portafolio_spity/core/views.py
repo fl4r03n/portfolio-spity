@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_deny
 from django.views.decorators.clickjacking import xframe_options_sameorigin
-
-# Create your views here.
 from django.shortcuts import render, HttpResponse
+from .models import SiteConfiguration, SocialLinks
 
 def contact(request):
     return render(request,'core/contact.html')
@@ -28,7 +27,7 @@ def portfolio_details(request):
 def contact(request):
     return render(request,'core/contact.html')
 
-from .models import SiteConfiguration
+
 
 def site_configuration(request):
     # Obtener la configuración del sitio
@@ -40,4 +39,13 @@ def site_configuration(request):
     # Retornar el contexto que deseas pasar a todas las plantillas
     return {
         'site_config': site_config
+    }
+    
+def social_links(request):
+    try:
+        links = SocialLinks.objects.first()
+    except SocialLinks.DoesNotExist:
+        links = None
+    return {
+        'social_links': links
     }

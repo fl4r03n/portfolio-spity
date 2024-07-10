@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",
-    "home.apps.HomeConfig"
+    "home.apps.HomeConfig",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +70,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "core.views.site_configuration",
+                "core.views.social_links",
             ],
         },
     },

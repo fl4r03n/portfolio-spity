@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import pre_save, post_save, pre_delete
 from django.dispatch import receiver
 import os
 
@@ -23,17 +23,19 @@ class Home(models.Model):
     def __str__(self):
         return self.titulo
 
-@receiver(post_save, sender=Home)
-def delete_old_background_image(sender, instance, **kwargs):
-    # Obtener la última imagen (si existe)
-    old_images = Home.objects.exclude(pk=instance.pk)
-    for old_image in old_images:
-        if os.path.isfile(old_image.background_image.path):
-            os.remove(old_image.background_image.path)
-    # Eliminar otros registros de la base de datos
-    old_images.delete()
+@receiver(pre_save, sender=Home)
+def delete_old_imagen_fondo(sender, instance, **kwargs):
+    if instance.pk:
+        try:
+            old_instance = Home.objects.get(pk=instance.pk)
+        except Home.DoesNotExist:
+            return
+        if old_instance.imagen_fondo and old_instance.imagen_fondo != instance.imagen_fondo:
+            if os.path.isfile(old_instance.imagen_fondo.path):
+                os.remove(old_instance.imagen_fondo.path)
 
 @receiver(pre_delete, sender=Home)
 def delete_image_file(sender, instance, **kwargs):
-    if os.path.isfile(instance.background_image.path):
-        os.remove(instance.background_image.path)
+    if instance.imagen_fondo:
+        if os.path.isfile(instance.imagen_fondo.path):
+            os.remove(instance.imagen_fondo.path)
