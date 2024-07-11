@@ -24,7 +24,7 @@ from about import views as about_views
 urlpatterns = [
     path('',home_views.home, name='home'),
     path('hone/',home_views.home, name='home'),
-    path('about-me/', about_views   .about, name='about'),
+    path('about-me/', about_views.about, name='about'),
     path('resume/', core_views.resume, name='resume'),
     path('services/', core_views.services, name='services'),
     path('portfolio/', core_views.portfolio, name='portfolio'),
