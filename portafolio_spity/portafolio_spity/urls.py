@@ -20,12 +20,13 @@ from django.urls import path
 from core import views as core_views
 from home import views as home_views
 from about import views as about_views
+from resume import views as resume_views
 
 urlpatterns = [
     path('',home_views.home, name='home'),
     path('hone/',home_views.home, name='home'),
     path('about-me/', about_views.about, name='about'),
-    path('resume/', core_views.resume, name='resume'),
+    path('resume/', resume_views.resume, name='resume'),
     path('services/', core_views.services, name='services'),
     path('portfolio/', core_views.portfolio, name='portfolio'),
     path('portfolio-details/', core_views.portfolio_details, name='portfolio-details'),
