@@ -7,9 +7,6 @@ from .models import SiteConfiguration, SocialLinks
 def contact(request):
     return render(request,'core/contact.html')
 
-def services(request):
-    return render(request,'core/services.html')
-
 @xframe_options_sameorigin
 def portfolio(request):
     return render(request,'core/portfolio.html')

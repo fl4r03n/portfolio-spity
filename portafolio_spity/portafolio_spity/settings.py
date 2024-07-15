@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "about.apps.AboutConfig",
     "resume.apps.ResumeConfig",
+    "services.apps.ServicesConfig",
 ]
 
 MIDDLEWARE = [
