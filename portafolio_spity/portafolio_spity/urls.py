@@ -22,6 +22,7 @@ from home import views as home_views
 from about import views as about_views
 from resume import views as resume_views
 from services import views as services_views
+from portfolio import views as portfolio_views
 
 urlpatterns = [
     path('',home_views.home, name='home'),
@@ -29,7 +30,7 @@ urlpatterns = [
     path('about-me/', about_views.about, name='about'),
     path('resume/', resume_views.resume, name='resume'),
     path('services/', services_views.services, name='services'),
-    path('portfolio/', core_views.portfolio, name='portfolio'),
+    path('portfolio/', portfolio_views.portfolio, name='portfolio'),
     path('portfolio-details/', core_views.portfolio_details, name='portfolio-details'),
     path('contact/', core_views.contact, name='contact'),
     path("admin/", admin.site.urls),

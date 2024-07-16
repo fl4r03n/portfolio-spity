@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "about.apps.AboutConfig",
     "resume.apps.ResumeConfig",
     "services.apps.ServicesConfig",
+    "portfolio.apps.PortfolioConfig",
 ]
 
 MIDDLEWARE = [
