@@ -1,0 +1,3 @@
+# Environments
+# .env files should not be ignored if you use them for configurations
+.env
