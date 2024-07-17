@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "resume.apps.ResumeConfig",
     "services.apps.ServicesConfig",
     "portfolio.apps.PortfolioConfig",
+    "contact.apps.ContactConfig",
 ]
 
 MIDDLEWARE = [

@@ -3,12 +3,13 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import pre_save, post_save, pre_delete
 from django.dispatch import receiver
 import os
+from core.models import validate_image_size
 
 class Home(models.Model):
     # Campos del modelo para la página de inicio
     titulo = models.CharField(_("Titulo"), max_length=100, default="SPITTER")
     descripcion = models.TextField(_("Descripcion"),default="I'm a professional content creator from Argentina")
-    imagen_fondo = models.ImageField(_("Img Fondo"),upload_to='home/')
+    imagen_fondo = models.ImageField(_("Img Fondo"),upload_to='home/', validators=[validate_image_size])
     # Otros campos según sea necesario
 
     def save(self, *args, **kwargs):

@@ -3,13 +3,15 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import pre_save, post_save, pre_delete
 from django.dispatch import receiver
 import os
+from core.models import validate_image_size
+
 
 class About(models.Model):
     tittle_section = models.CharField(_("Título de Sección"), max_length=100, default="About")
     desc_section = models.TextField(_("Descripción de Sección"), default="Magnam dolores commodi suscipit...")
 
     # Información personal
-    img = models.ImageField(_("Imagen"), upload_to='about/', default='about/default.jpg')
+    img = models.ImageField(_("Imagen"), upload_to='about/', default='about/default.jpg', validators=[validate_image_size])
     name = models.CharField(_("Nombre"), max_length=100, default="Content Creator, Video Editor, and Music Producer")
     desc_short = models.TextField(_("Descripción Corta"), default="Lorem ipsum dolor sit amet...")
     birthday = models.CharField(_("Cumpleaños"), max_length=100, default="1 May 1995")
@@ -126,7 +128,7 @@ class Testimonial(models.Model):
     author_name = models.CharField(_("Nombre del autor"), max_length=100)
     author_position = models.CharField(_("Posición del autor"), max_length=100)
     testimonial_text = models.TextField(_("Texto del testimonio"))
-    testimonial_image = models.ImageField(_("Imagen del testimonio"), upload_to='testimonials/', blank=True, null=True)
+    testimonial_image = models.ImageField(_("Imagen del testimonio"), upload_to='testimonials/', blank=True, null=True, validators=[validate_image_size])
 
     class Meta:
         verbose_name = _("Testimonio")

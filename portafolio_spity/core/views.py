@@ -1,16 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .models import SiteConfiguration, SocialLinks
 
-def contact(request):
-    return render(request,'core/contact.html')
-
-def portfolio_details(request):
-    return render(request,'core/portfolio-details.html')
-
-def contact(request):
-    return render(request,'core/contact.html')
-
-
 
 def site_configuration(request):
     # Obtener la configuración del sitio
