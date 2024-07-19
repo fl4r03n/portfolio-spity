@@ -35,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=a%4)b6(b$rvouhigrk^fu3)gk9@!z!w+^)bcm4+ipj(xtb83-"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = false
+DEBUG = False
 
 ALLOWED_HOSTS = ["spitter.pythonanywhere.com", "127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "http://localhost"]
