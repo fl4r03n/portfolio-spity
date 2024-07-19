@@ -32,10 +32,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-=a%4)b6(b$rvouhigrk^fu3)gk9@!z!w+^)bcm4+ipj(xtb83-"
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SECURE_SSL_REDIRECT = True
+
+SECRET_KEY = config('SECRET_KEY')
+
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ["spitter.pythonanywhere.com", "127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "http://localhost"]
