@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import ServicesDesc, Service
+
+from .models import Service, ServicesDesc
+
 
 @admin.register(ServicesDesc)
 class ServicesDescAdmin(admin.ModelAdmin):
@@ -10,8 +12,8 @@ class ServicesDescAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         # Deshabilitar la opción de eliminar
         return False
-    
+
+
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description')
-    
+    list_display = ("title", "description")

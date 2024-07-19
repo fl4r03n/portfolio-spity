@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import PortfolioDesc, PortfolioItem
+
 
 # Register your models here.
 @admin.register(PortfolioDesc)
@@ -11,12 +13,28 @@ class PortfolioDescAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         # Deshabilitar la opción de eliminar
         return False
-    
+
+
 @admin.register(PortfolioItem)
 class PortfolioItemAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'client', 'project_date')
-    search_fields = ('title', 'category', 'client')
-    fieldsets = (None, {
-            'fields': ('title', 'category', 'description', 'image1', 'image2', 'image3', 'client', 'project_date', 'project_url'),
-            'description': 'Available categories: Audio, Video, Otros.'
-        }),
+    list_display = ("title", "category", "client", "project_date")
+    search_fields = ("title", "category", "client")
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "title",
+                    "category",
+                    "description",
+                    "image1",
+                    "image2",
+                    "image3",
+                    "client",
+                    "project_date",
+                    "project_url",
+                ),
+                "description": "Available categories: Audio, Video, Otros.",
+            },
+        ),
+    )

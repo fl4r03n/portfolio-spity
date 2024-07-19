@@ -15,29 +15,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from about import views as about_views
+from contact import views as contact_views
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from core import views as core_views
 from home import views as home_views
-from about import views as about_views
+from portfolio import views as portfolio_views
 from resume import views as resume_views
 from services import views as services_views
-from portfolio import views as portfolio_views
-from contact import views as contact_views
 
 urlpatterns = [
-    path('',home_views.home, name='home'),
-    path('hone/',home_views.home, name='home'),
-    path('about-me/', about_views.about, name='about'),
-    path('resume/', resume_views.resume, name='resume'),
-    path('services/', services_views.services, name='services'),
-    path('portfolio/', portfolio_views.portfolio, name='portfolio'),
-    path('portfolio-details/<int:pk>/', portfolio_views.portfolio_details, name='portfolio-details'),
-    path('contact/', contact_views.contact, name='contact'),
+    path("", home_views.home, name="home"),
+    path("hone/", home_views.home, name="home"),
+    path("about-me/", about_views.about, name="about"),
+    path("resume/", resume_views.resume, name="resume"),
+    path("services/", services_views.services, name="services"),
+    path("portfolio/", portfolio_views.portfolio, name="portfolio"),
+    path(
+        "portfolio-details/<int:pk>/",
+        portfolio_views.portfolio_details,
+        name="portfolio-details",
+    ),
+    path("contact/", contact_views.contact, name="contact"),
     path("admin/", admin.site.urls),
 ]
 
-from django.conf import settings
 if settings.DEBUG:
     from django.conf.urls.static import static
+
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

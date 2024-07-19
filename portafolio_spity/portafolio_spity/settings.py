@@ -10,19 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
-#Config de correo de django
+# Config de correo de django
 from decouple import config
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_PORT = config("EMAIL_PORT", cast=int)
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,13 +37,13 @@ SECRET_KEY = "django-insecure-=a%4)b6(b$rvouhigrk^fu3)gk9@!z!w+^)bcm4+ipj(xtb83-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://localhost']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "http://localhost"]
 
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_FRAME_SRC = ("'self'", "https://www.youtube.com", "https://vimeo.com")
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = "SAMEORIGIN"
 # Application definition
 
 INSTALLED_APPS = [
@@ -77,7 +77,7 @@ ROOT_URLCONF = "portafolio_spity.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR,"templates"],
+        "DIRS": [BASE_DIR, "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -128,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-mx'
+LANGUAGE_CODE = "es-mx"
 
 TIME_ZONE = "UTC"
 
@@ -141,10 +141,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

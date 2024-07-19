@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import SiteConfiguration, SocialLinks
 
+
 @admin.register(SiteConfiguration)
 class SiteConfigurationAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):

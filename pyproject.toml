@@ -13,6 +13,7 @@ black = "^24.4.0"
 isort = "^5.13.2"
 pillow = "^10.3.0"
 django-decouple = "^2.1"
+ruff = "^0.5.3"
     
 
 [build-system]

@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Home
 
+
 @admin.register(Home)
 class HomeAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
@@ -11,4 +12,6 @@ class HomeAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         # Deshabilitar la opción de eliminar
         return False
+
+
 #    pass   O define configuraciones específicas aquí

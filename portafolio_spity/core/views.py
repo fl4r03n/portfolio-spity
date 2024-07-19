@@ -1,4 +1,3 @@
-from django.shortcuts import render, HttpResponse
 from .models import SiteConfiguration, SocialLinks
 
 
@@ -10,15 +9,12 @@ def site_configuration(request):
         site_config = None
 
     # Retornar el contexto que deseas pasar a todas las plantillas
-    return {
-        'site_config': site_config
-    }
-    
+    return {"site_config": site_config}
+
+
 def social_links(request):
     try:
         links = SocialLinks.objects.first()
     except SocialLinks.DoesNotExist:
         links = None
-    return {
-        'social_links': links
-    }
+    return {"social_links": links}
