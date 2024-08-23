@@ -7,7 +7,7 @@ from .models import PortfolioDesc, PortfolioItem
 # Create your views here.
 @xframe_options_sameorigin
 def portfolio(request):
-    items = PortfolioItem.objects.all()
+    items = PortfolioItem.objects.all().order_by('-project_date')
     portfolio_desc = PortfolioDesc.objects.last()
     return render(
         request,
